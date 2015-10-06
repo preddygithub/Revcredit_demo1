@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>RevolutionCredit</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for device API libraries to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // device APIs are available
+        //
+
+        var connectionStatus = false;
+
+        $(document).on('pagebeforeshow', '#index', function () {
+            setInterval(function () {
+                connectionStatus = navigator.onLine ? 'online' : 'offline';
+                alert("Online ::::" + connectionStatus);
+
+            }, 100);
+            $(document).on('click', '#check-connection', function () {
+                alert("Offline ::::"+connectionStatus);
+            });
+        });
+
+
+
+
+
+        function onDeviceReady() {
+
+            function connectionType() {
+                var networkConnectionType = navigator.network.connection.type;
+                alert('Connection Type: ' + networkConnectionType);
+            }
+            var ref = window.open('https://staging.revolutioncredit.com/demo/mobileIndex.html', '_self', 'location=yes');
+
+            ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
+            ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
+            ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
+            ref.addEventListener('exit', function (event) { alert(event.type); });
+
+
+            
+        }
+        alert("hello");
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <!-- <a href="#" onclick="window.open('http://www.nhl.com', '_system', 'location=yes');">_system</a> -->
+        <!-- <a href="#" onclick="window.open('http://www.kidzout.com', '_system');">www.kidzout.com</a> -->
+    </div>
+</body>
+</html>
