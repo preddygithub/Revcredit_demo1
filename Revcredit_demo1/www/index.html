@@ -25,27 +25,18 @@
                 alert("Offline ::::"+connectionStatus);
             });
         });
-
-
-
-
-
         function onDeviceReady() {
 
             function connectionType() {
                 var networkConnectionType = navigator.network.connection.type;
                 alert('Connection Type: ' + networkConnectionType);
             }
-			alert("Going to staging ");
             var ref = window.open('https://staging.revolutioncredit.com/demo/mobileIndex.html', '_self', 'location=yes');
 
             ref.addEventListener('loadstart', function (event) { alert('start: ' + event.url); });
             ref.addEventListener('loadstop', function (event) { alert('stop: ' + event.url); });
             ref.addEventListener('loaderror', function (event) { alert('error: ' + event.message); });
             ref.addEventListener('exit', function (event) { alert(event.type); });
-
-
-            
         }
       </script>
 </head>
